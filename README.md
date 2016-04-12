@@ -1,4 +1,4 @@
-# receipt detection server
+# Fuel App: receipt detection server
 A server written with Flask framework (http://flask.pocoo.org/) as a part of my B.Sc. project.
 It receives a photo from the client, performs detection and sends detected object to the client. 
 
