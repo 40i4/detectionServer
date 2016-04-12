@@ -29,9 +29,6 @@ def allowed_file(filename):
 
 @app.route("/test", methods=['POST', 'OPTIONS'])
 def upload_file():
-    # print 'hello'
-    # print request.form
-    # print 'test' in request.form
 
     print request.files
     if 'file' in request.files:
@@ -47,24 +44,15 @@ def upload_file():
         print "save path only static: " + str(save_path.split('/',-2)[0])
 
         # run algo
-        #!file_processed, succeeded = algo.algoReceipts.runz(save_path)
-        #file_processed, succeeded, contours = algo.algoReceipts.runz(save_path)
-        file_processed, succeeded, contours = runz(save_path)
+        file_processed, succeeded = runz(save_path)
 
         if not succeeded:
-            #!return json.dumps({'error': "not succeeded"})
-            return json.dumps({'error': "not succeeded"}), ''
+            return json.dumps({'error': "not succeeded"})
         new_filename = file_processed
-
-        # return json.dumps({'img_path': "/static/%s" % (new_filename)})
 
         newFileNameWithoutPath = new_filename.split('/')[-1]
         print "aargh " + str(new_filename.split('/')[-1])
         return json.dumps({'img_path': "/static/%s" % newFileNameWithoutPath})
-
-        #print "img_path: "+str(new_filename)
-        #!return json.dumps({'img_path': "%s" % new_filename})
-        #return json.dumps({'img_path': "%s" % new_filename})
 
     else:
         print "no img in request.files"
