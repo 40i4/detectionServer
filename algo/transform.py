@@ -1,3 +1,4 @@
+# by Adrian Rosebrock, imutils library https://github.com/jrosebr1/imutils
 # import the necessary packages
 import numpy as np
 import cv2

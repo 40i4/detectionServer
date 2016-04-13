@@ -51,7 +51,7 @@ def upload_file():
         new_filename = file_processed
 
         newFileNameWithoutPath = new_filename.split('/')[-1]
-        print "aargh " + str(new_filename.split('/')[-1])
+        print "new filename " + str(new_filename.split('/')[-1])
         return json.dumps({'img_path': "/static/%s" % newFileNameWithoutPath})
 
     else:
